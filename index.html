@@ -1,362 +1,76 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>0pen4I | The Actually Open AI Office</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&family=Inter:wght@400;500;700&display=swap"
-      rel="stylesheet"
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="0pen4I" />
+    <meta
+      property="og:description"
+      content="The autonomous, multi-model AI office harness. FOSS, for non-commercial use."
     />
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta property="og:url" content="https://oai.is-a.dev" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://0pen4i.github.io/android-chrome-512x512.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Not a walled garden. An autonomous, multi-agent AI office built for the community."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="0pen4I" />
+    <meta
+      name="twitter:description"
+      content="The autonomous, multi-model AI office harness. FOSS, for non-commercial use."
+    />
+    <meta
+      name="twitter:image"
+      content="https://0pen4i.github.io/android-chrome-512x512.png"
+    />
+    <title>
+      0pen4I: The autonomous, multi-model AI office harness. FOSS, for
+      non-commercial use.
+    </title>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              mono: ['"Fira Code"', "monospace"],
-              sans: ["Inter", "sans-serif"],
-            },
-            colors: {
-              brand: {
-                dark: "#0a0a0a",
-                light: "#ffffff",
-                accent: "#ff3366", // A rebellious neon pink/red, far from corporate teal
-                primary: "#00ffcc",
-              },
-            },
-          },
-        },
+      const oniframeErr = () => {
+        window.location = "http://13.140.160.69:8848/";
       };
     </script>
-    <style>
-      body {
-        background-color: #050505;
-        background-image: radial-gradient(
-          circle at 50% 0%,
-          #1a1a1a 0%,
-          #050505 70%
-        );
-        color: #e5e5e5;
-      }
-      .glitch-text {
-        position: relative;
-        display: inline-block;
-      }
-      .glitch-text::before,
-      .glitch-text::after {
-        content: attr(data-text);
-        position: absolute;
+  </head>
+  <body>
+    <iframe
+      src="http://13.140.160.69:8848/"
+      style="
+        position: fixed;
         top: 0;
         left: 0;
+        bottom: 0;
+        right: 0;
         width: 100%;
         height: 100%;
-        opacity: 0.8;
-      }
-      .glitch-text::before {
-        left: 2px;
-        text-shadow: -2px 0 #ff3366;
-        clip: rect(24px, 550px, 90px, 0);
-        animation: glitch-anim-2 3s infinite linear alternate-reverse;
-      }
-      .glitch-text::after {
-        left: -2px;
-        text-shadow: -2px 0 #00ffcc;
-        clip: rect(85px, 550px, 140px, 0);
-        animation: glitch-anim 2.5s infinite linear alternate-reverse;
-      }
-      @keyframes glitch-anim {
-        0% {
-          clip: rect(11px, 9999px, 83px, 0);
-        }
-        20% {
-          clip: rect(65px, 9999px, 12px, 0);
-        }
-        40% {
-          clip: rect(98px, 9999px, 34px, 0);
-        }
-        60% {
-          clip: rect(23px, 9999px, 76px, 0);
-        }
-        80% {
-          clip: rect(45px, 9999px, 98px, 0);
-        }
-        100% {
-          clip: rect(88px, 9999px, 12px, 0);
-        }
-      }
-      @keyframes glitch-anim-2 {
-        0% {
-          clip: rect(65px, 9999px, 100px, 0);
-        }
-        20% {
-          clip: rect(3px, 9999px, 54px, 0);
-        }
-        40% {
-          clip: rect(89px, 9999px, 12px, 0);
-        }
-        60% {
-          clip: rect(34px, 9999px, 67px, 0);
-        }
-        80% {
-          clip: rect(78px, 9999px, 23px, 0);
-        }
-        100% {
-          clip: rect(12px, 9999px, 89px, 0);
-        }
-      }
-      .gradient-border {
-        background:
-          linear-gradient(#050505, #050505) padding-box,
-          linear-gradient(to right, #ff3366, #00ffcc) border-box;
-        border: 1px solid transparent;
-      }
-    </style>
-  </head>
-  <body class="font-sans antialiased min-h-screen flex flex-col">
-    <!-- Navigation -->
-    <nav
-      class="w-full p-6 flex justify-between items-center border-b border-white/10 backdrop-blur-md sticky top-0 z-50"
+        border: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        z-index: 999999;
+      "
+      onerror="oniframeErr()"
     >
-      <div
-        class="font-mono text-2xl font-bold tracking-tighter flex items-center gap-2 text-brand-primary"
-      >
-        <i data-lucide="terminal" class="w-6 h-6"></i>
-        0pen4I
-      </div>
-      <div class="flex items-center gap-6">
-        <!--
-        <a
-          href="#features"
-          class="text-sm font-mono text-gray-400 hover:text-white transition-colors"
-          >/features</a
-        >
-        -->
-        <a
-          href="#architecture"
-          class="text-sm font-mono text-gray-400 hover:text-white transition-colors"
-          >/architecture</a
-        >
-        <a
-          href="https://github.com/0pen4I"
-          target="_blank"
-          class="px-5 py-2 font-mono text-sm font-bold bg-white text-black hover:bg-brand-primary hover:text-black transition-all rounded shadow-[0_0_15px_rgba(0,255,204,0.3)] flex items-center gap-2"
-        >
-          <!-- <i data-lucide="github" class="w-4 h-4"></i> -->
-          Know more
-        </a>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header
-      class="flex-grow flex flex-col items-center justify-center text-center px-4 py-32"
-    >
-      <div
-        class="inline-block mb-4 px-3 py-1 rounded-full border border-brand-accent/50 bg-brand-accent/10 text-brand-accent font-mono text-xs uppercase tracking-widest font-bold"
-      >
-        Notice: 100% Open Source Soon (from beta)
-        <!-- code in alpha stage, will push to the world ASAP beta -->
-      </div>
-      <h1
-        class="text-5xl md:text-7xl font-mono font-bold mb-6 text-white leading-tight"
-      >
-        The Autonomous <br />
-        <span
-          class="glitch-text text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent"
-          data-text="Virtual Office Harness"
-          >Virtual Office Harness</span
-        >
-      </h1>
-      <p class="text-lg md:text-xl text-gray-400 max-w-3xl mb-10 font-sans">
-        Because "open" shouldn't be just a marketing term.
-        <strong
-          class="text-white"
-          style="font-family: &quot;FiraCode Nerd Font&quot;"
-          >0pen4I</strong
-        >
-        is a fully autonomous, AI-only office setup. FOSS, BUT FOR
-        NON-COMMERCIAL USE ONLY. Combine multiple Gemini API keys, OpenAI,
-        Claude, (any online) oe even local Ollama models (local) via Tailscale,
-        and third-party models into one unstoppable, self-collaborating
-        workforce.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a
-          href="https://github.com/0pen4I"
-          class="px-8 py-4 font-mono font-bold bg-brand-primary text-black hover:bg-white transition-colors rounded flex items-center justify-center gap-2 text-lg"
-        >
-          <i data-lucide="code-2"></i> View
-          <!-- Source -->
-        </a>
-        <a
-          href="#architecture"
-          class="px-8 py-4 font-mono font-bold border border-white/20 hover:border-brand-accent hover:text-brand-accent transition-colors rounded flex items-center justify-center gap-2 text-lg"
-        >
-          <i data-lucide="cpu"></i> See How It Works
-        </a>
-      </div>
-
-      <!-- Terminal Mockup -->
-      <div
-        class="mt-16 w-full max-w-4xl mx-auto bg-[#0a0a0a] rounded-lg border border-gray-800 shadow-2xl overflow-hidden text-left"
-      >
-        <div
-          class="flex items-center px-4 py-2 border-b border-gray-800 bg-[#111]"
-        >
-          <div class="flex gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-          </div>
-          <div class="mx-auto text-xs font-mono text-gray-500">
-            root@0pen4I-office:~
-          </div>
-        </div>
-        <div
-          class="p-6 font-mono text-sm text-gray-300 leading-relaxed overflow-x-auto"
-        >
-          <span class="text-brand-primary">$</span> oai init --office-mode<br />
-          <span class="text-gray-500">[INFO]</span> Booting Virtual Office
-          Harness...<br />
-          <span class="text-gray-500">[INFO]</span> Connecting Gemini API nodes
-          [OK]<br />
-          <span class="text-gray-500">[INFO]</span> Connecting Claude API nodes
-          [OK]<br />
-          <span class="text-gray-500">[INFO]</span> Connecting OpenRouter API
-          nodes [OK]<br />
-          <span class="text-gray-500">[INFO]</span> OpenAI Gemini API nodes
-          [OK]<br />
-          <span class="text-gray-500">[INFO]</span> Pinging local Ollama
-          instances via Tailscale... [OK]<br />
-          <span class="text-brand-accent">[SYSTEM]</span> Agent swarm online. 7
-          workers, 4 manager.<br />
-          <span class="text-gray-500">[INFO]</span> Awaiting human oversight...
-          <span class="animate-pulse">_</span>
-        </div>
-      </div>
-    </header>
-
-    <!-- The "Mockery" Statement -->
-    <section class="py-24 bg-brand-accent/5 border-y border-brand-accent/20">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <i
-          data-lucide="unlock"
-          class="w-12 h-12 mx-auto mb-6 text-brand-accent"
-        ></i>
-        <h2 class="text-3xl font-mono font-bold mb-4">
-          Not a closed ecosystem. Not a walled garden.
-        </h2>
-        <p class="text-xl text-gray-300">
-          Unlike some heavily-funded startups with "Open" in their name, we
-          actually ship the code. You own the infrastructure. You hold the API
-          keys. You run the local nodes. It scales to its own AI-service),
-          paying for itself, managed entirely by you.
-          <br />
-          <br />
-          <b>Intentionally made for non-commercial use.</b>
-        </p>
-      </div>
-    </section>
-
-    <!-- Features / Architecture -->
-    <section id="architecture" class="py-24 px-6 max-w-7xl mx-auto">
-      <div class="mb-16">
-        <h2 class="text-4xl font-mono font-bold mb-4 text-brand-primary">
-          /architecture
-        </h2>
-        <p class="text-gray-400 text-lg">
-          Inspired by MetaGPT, ChatDev, and Claudish—rebuilt for total autonomy.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="gradient-border rounded-lg p-8 bg-[#0a0a0a]">
-          <i
-            data-lucide="network"
-            class="w-10 h-10 text-brand-primary mb-6"
-          ></i>
-          <h3 class="text-xl font-bold mb-3 font-mono">Multi-Model Synergy</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Rotate, mix deploy-multi agent (if needed) basically use multiple
-            Gemini, OpenAI, Claude, OpenRouter, etc. API keys alongside other
-            provider models to bypass limits. Let the strongest model manage the
-            complex logic while cheaper models handle the grunt work.
-          </p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="gradient-border rounded-lg p-8 bg-[#0a0a0a]">
-          <i data-lucide="server" class="w-10 h-10 text-brand-accent mb-6"></i>
-          <h3 class="text-xl font-bold mb-3 font-mono">
-            Tailscale + Ollama/Local
-          </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Already integrated. Wire your local, uncensored Ollama or any local
-            LLM instances directly into the office swarm via Tailscale. Keep
-            sensitive data processing strictly on-premise.
-          </p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="gradient-border rounded-lg p-8 bg-[#0a0a0a]">
-          <i data-lucide="eye" class="w-10 h-10 text-white mb-6"></i>
-          <h3 class="text-xl font-bold mb-3 font-mono">Human-in-the-Loop</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            They do the work, you hold the leash. A comprehensive monitoring
-            dashboard allows you to oversee agent collaboration, correct course,
-            and approve deployments.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="py-32 text-center px-4 relative overflow-hidden">
-      <div class="absolute inset-0 bg-brand-primary/5 blur-[100px] z-0"></div>
-      <div class="relative z-10">
-        <h2 class="text-5xl font-mono font-bold mb-8">
-          Ready to hire your AI workforce?
-        </h2>
-        <a
-          href="https://github.com/0pen4I/0pen4I"
-          class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-mono font-bold text-xl rounded hover:bg-brand-primary transition-all hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)]"
-        >
-          <!--
-          <i data-lucide="github" class="w-6 h-6"></i>
-          Star 0pen4I on GitHub
-          -->
-          WIP: publishes after hitting beta stage
-        </a>
+      Your browser doesn't support iframes, trying to redirect..
+      <script>
+        window.location = "http://13.140.160.69:8848/";
+      </script>
+      <noscript>
         <br />
         <br />
-        <code>Current State: alpha</code>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/10 py-8 px-6 mt-auto">
-      <div
-        class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
-      >
-        <div class="font-mono text-gray-500 text-sm flex items-center gap-2">
-          <i data-lucide="terminal" class="w-4 h-4"></i>
-          0pen4I v0.1.0-WIP
-        </div>
-        <div class="text-gray-600 text-sm font-mono">
-          Built for the Open Source community. License: MIT.
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      // Initialize Lucide Icons
-      lucide.createIcons();
-    </script>
+        <p>
+          Your browser neither support JavaScript nor IFrame(s).
+          <a href="https://0pen4i.github.io/"
+            >Click here to visit the page directly.</a
+          >
+        </p>
+      </noscript>
+    </iframe>
   </body>
 </html>
